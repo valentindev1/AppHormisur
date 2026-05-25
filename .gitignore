@@ -33,5 +33,5 @@ yarn-error.log
 
 # --- Archivos de configuración sensible (¡IMPORTANTE!) ---
 # Nunca subas tus credenciales de base de datos o claves API
-application-local.properties
+application.properties
 .env
