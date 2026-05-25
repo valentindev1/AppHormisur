@@ -6,6 +6,7 @@ import com.example.demo.dto.categoria.CategoriaResponseDTO;
 import com.example.demo.service.categoria.CategoriaService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,6 +23,7 @@ public class CategoriaController {
     // =========================
     // CREAR
     // =========================
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/crear")
     public CategoriaResponseDTO crear(@Valid @RequestBody CategoriaRequestDTO dto) {
         return categoriaService.crear(dto);
@@ -30,6 +32,7 @@ public class CategoriaController {
     // =========================
     // LISTAR
     // =========================
+
     @GetMapping("/listar")
     public List<CategoriaResponseDTO> listar() {
         return categoriaService.listar();
@@ -38,6 +41,7 @@ public class CategoriaController {
     // =========================
     // OBTENER POR ID
     // =========================
+
     @GetMapping("/{id}")
     public CategoriaResponseDTO obtenerPorId(@PathVariable Long id) {
         return categoriaService.obtenerPorId(id);
@@ -46,6 +50,7 @@ public class CategoriaController {
     // =========================
     // ELIMINAR
     // =========================
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/eliminar/{id}")
     public void eliminar(@PathVariable Long id) {
         categoriaService.eliminar(id);

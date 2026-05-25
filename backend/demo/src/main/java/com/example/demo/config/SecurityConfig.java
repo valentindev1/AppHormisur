@@ -30,6 +30,7 @@ public class SecurityConfig {
     private final JwtAuthFilter jwtAuthFilter;
     private final UsuarioDetailsService usuarioDetailsService;
 
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
@@ -37,17 +38,36 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .cors(cors -> {})
                 .authorizeHttpRequests(auth -> auth
+
+                        // ✅ AUTENTICACIÓN (login/register)
                         .requestMatchers("/api/auth/**").permitAll()
+
+                        // ✅ ENDPOINTS PÚBLICOS (lectura)
+                        .requestMatchers(
+                                "/api/articulo/listar/**",
+                                "/api/articulo/*/*",
+                                "/api/categoria/listar",
+                                "/api/categoria/*"
+                        ).permitAll()
+
+                        // 🔒 TODO LO DEMÁS REQUIERE AUTENTICACIÓN
                         .anyRequest().authenticated()
                 )
+
+                // ✅ SIN SESIÓN (JWT)
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
+
+                // ✅ PROVEEDOR DE AUTENTICACIÓN
                 .authenticationProvider(authenticationProvider())
+
+                // ✅ FILTRO JWT
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
+
 
 
     @Bean

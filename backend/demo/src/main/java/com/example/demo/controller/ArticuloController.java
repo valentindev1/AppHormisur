@@ -5,6 +5,7 @@ import com.example.demo.dto.articulo.ArticuloResponseDTO;
 import com.example.demo.service.articulo.ArticuloService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class ArticuloController {
     // =========================
     // ✅ CREAR (multipart)
     // =========================
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping(value = "/crear", consumes = "multipart/form-data")
     public ArticuloResponseDTO crear(@ModelAttribute @Valid ArticuloRequestDTO dto) {
         return articuloService.crear(dto);
@@ -63,6 +65,7 @@ public class ArticuloController {
     // =========================
     // ✅ ACTUALIZAR (multipart también 🔥)
     // =========================
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping(value = "/actualizar/{id}", consumes = "multipart/form-data")
     public ArticuloResponseDTO actualizar(
             @PathVariable Long id,
@@ -74,6 +77,7 @@ public class ArticuloController {
     // =========================
     // ✅ ELIMINAR
     // =========================
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/eliminar/{id}")
     public void eliminar(@PathVariable Long id) {
         articuloService.eliminar(id);

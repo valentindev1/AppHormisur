@@ -46,7 +46,7 @@ public class UsuarioController {
     }
 
     // ✅ ADMIN o el propio usuario pueden actualizar
-    @PreAuthorize("hasRole('ADMIN') or #id == authentication.principal.id")
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<?> actualizarUsuario(
             @PathVariable Long id,

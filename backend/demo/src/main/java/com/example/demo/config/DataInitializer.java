@@ -17,17 +17,19 @@ public class DataInitializer {
     private final PasswordEncoder passwordEncoder;
 
     //Variables de entorno
-    @Value("${ADMIN_EMAIL}")
+
+    @Value("${ADMIN_EMAIL:admin@demo.com}")
     private String adminEmail;
 
-    @Value("${ADMIN_NAME}")
+    @Value("${ADMIN_NAME:admin}")
     private String adminName;
 
-    @Value("${ADMIN_LASTNAME}")
+    @Value("${ADMIN_LASTNAME:admin}")
     private String adminLastname;
 
-    @Value("${ADMIN_PASS}")
+    @Value("${ADMIN_PASS:admin123456}")
     private String adminPass;
+
 
     @Bean
     CommandLineRunner initDatabase(UsuarioRepository repository) {
