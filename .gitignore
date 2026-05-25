@@ -16,7 +16,7 @@ target/
 .springBeans
 .factorypath
 
-# --- Angular / Node.js ---
+# --- Angular/ Node.js ---
 node_modules/
 dist/
 .angular/
