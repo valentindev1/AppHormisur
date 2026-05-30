@@ -82,4 +82,10 @@ public class ArticuloController {
     public void eliminar(@PathVariable Long id) {
         articuloService.eliminar(id);
     }
+
+
+    @GetMapping("/listar/categoria/{categoria}")
+    public List<ArticuloResponseDTO> listarPorCategoria(@PathVariable String categoria) {
+        return articuloService.listarPorCategoria(categoria);
+    }
 }

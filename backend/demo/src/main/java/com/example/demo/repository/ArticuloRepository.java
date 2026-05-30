@@ -4,6 +4,7 @@ import com.example.demo.model.articulo.Articulo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,5 +27,10 @@ public interface ArticuloRepository extends JpaRepository<Articulo, Long> {
     List<Articulo> findTop5ByPublicadaTrueOrderByFechaPublicacionDesc();
 
     Optional<Articulo> findBySlugAndCategoriaId(String slug, Long categoriaId);
+
+    List<Articulo> findByCategoriaNombre(String nombre);
+
+    List<Articulo> findByCategoriaNombreAndPublicada(String nombre, Boolean publicada);
+
 }
 

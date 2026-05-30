@@ -39,15 +39,25 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
+                // 🔒 Desactiva CSRF (necesario para APIs REST)
                 .csrf(csrf -> csrf.disable())
+
+                // 🌐 Configuración CORS
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+
+                // 🔐 Reglas de seguridad
                 .authorizeHttpRequests(auth -> auth
 
-                        // ✅ AUTENTICACIÓN (login/register)
+                        // ENDPOINTS DE AUTENTICACIÓN
                         .requestMatchers("/api/auth/**").permitAll()
+
+                        // ARCHIVOS
                         .requestMatchers("/uploads/**").permitAll()
 
-                        // ✅ ENDPOINTS PÚBLICOS (lectura)
+                        // FORMULARIO DE CONTACTO (🔥 CLAVE PARA TU CASO)
+                        .requestMatchers("/api/contacto/**").permitAll()
+
+                        // ENDPOINTS PÚBLICOS
                         .requestMatchers(
                                 "/api/articulo/listar/**",
                                 "/api/articulo/*/*",
@@ -55,23 +65,24 @@ public class SecurityConfig {
                                 "/api/categoria/*"
                         ).permitAll()
 
-                        // 🔒 TODO LO DEMÁS REQUIERE AUTENTICACIÓN
+                        // 🔒 TODO LO DEMÁS REQUIERE TOKEN (JWT)
                         .anyRequest().authenticated()
                 )
 
-                // ✅ SIN SESIÓN (JWT)
+                // SIN SESIÓN (porque usas JWT)
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
 
-                // ✅ PROVEEDOR DE AUTENTICACIÓN
+                // PROVEEDOR DE AUTENTICACIÓN
                 .authenticationProvider(authenticationProvider())
 
-                // ✅ FILTRO JWT
+                // FILTRO JWT
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
+
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {

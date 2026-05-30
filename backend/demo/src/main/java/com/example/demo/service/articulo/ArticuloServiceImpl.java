@@ -185,6 +185,14 @@ public class ArticuloServiceImpl implements ArticuloService {
         articuloRepository.deleteById(id);
     }
 
+    public List<ArticuloResponseDTO> listarPorCategoria(String categoria) {
+        // Usamos el repositorio y mapeamos directamente a DTO usando el método interno
+        return articuloRepository.findByCategoriaNombreAndPublicada(categoria, true)
+                .stream()
+                .map(this::mapToDTO) // Usamos el método que ya tienes definido abajo
+                .collect(Collectors.toList());
+    }
+
     // =========================
     // 🔥 GUARDAR IMAGEN (solo tamaño)
     // =========================

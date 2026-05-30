@@ -29,4 +29,6 @@ public interface ArticuloService {
 
     // Eliminar artículo
     void eliminar(Long id);
+
+    List<ArticuloResponseDTO> listarPorCategoria(String categoria);
 }
