@@ -18,16 +18,16 @@ public class DataInitializer {
 
     //Variables de entorno
 
-    @Value("${ADMIN_EMAIL:admin@demo.com}")
+    @Value("${ADMIN_EMAIL}")
     private String adminEmail;
 
-    @Value("${ADMIN_NAME:admin}")
+    @Value("${ADMIN_NAME}")
     private String adminName;
 
-    @Value("${ADMIN_LASTNAME:admin}")
+    @Value("${ADMIN_LASTNAME}")
     private String adminLastname;
 
-    @Value("${ADMIN_PASS:admin123456}")
+    @Value("${ADMIN_PASS}")
     private String adminPass;
 
 

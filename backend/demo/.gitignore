@@ -1,10 +1,44 @@
-HELP.md
+# =========================
+# JAVA / SPRING BOOT
+# =========================
 target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+*.log
 
-### STS ###
+# Maven
+.mvn/wrapper/maven-wrapper.jar
+
+# =========================
+# NODE / ANGULAR
+# =========================
+node_modules/
+dist/
+.angular/
+
+# =========================
+# ENV VARIABLES (CRÍTICO)
+# =========================
+.env
+.env.* 
+
+# =========================
+# DOCKER
+# =========================
+docker-compose.override.yml
+
+# =========================
+# IDEs
+# =========================
+
+# IntelliJ
+.idea
+*.iws
+*.iml
+*.ipr
+
+# VS Code
+.vscode/
+
+# STS
 .apt_generated
 .classpath
 .factorypath
@@ -13,21 +47,22 @@ target/
 .springBeans
 .sts4-cache
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-
-### NetBeans ###
+# NetBeans
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
 build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
-### VS Code ###
-.vscode/
+# =========================
+# OS
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# TEMP FILES
+# =========================
+*.tmp
+*.temp

@@ -49,8 +49,12 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
 
                         // ENDPOINTS DE AUTENTICACIÓN
+
+                        .requestMatchers("/sitemap.xml").permitAll()
+
                         .requestMatchers("/api/auth/**").permitAll()
 
+                        .requestMatchers("/robots.txt").permitAll()
                         // ARCHIVOS
                         .requestMatchers("/uploads/**").permitAll()
 
