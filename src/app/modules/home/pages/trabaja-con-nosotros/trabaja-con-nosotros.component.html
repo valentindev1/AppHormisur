@@ -1,0 +1,103 @@
+<div class="nosotros-container">
+
+  <section class="hero-interna position-relative d-flex align-items-center justify-content-center text-center overflow-hidden">
+    <div class="css-carousel-background position-absolute w-100 h-100">
+      <div class="slide-img img-1 zoom-infinito" style="opacity: 1;"></div>
+    </div>
+
+    <div class="hero-overlay position-absolute w-100 h-100 z-1"></div>
+
+    <div class="container position-relative z-2 text-white">
+      <h1 class="display-4 fw-extrabold text-uppercase text-white tracking-tight main-title mt-5">
+        Trabaja con <span class="text-warning">Nosotros</span>
+      </h1>
+      <p class="text-light-50 tracking-widest text-uppercase fs-7 mt-3">
+        Inicio <span class="mx-2 text-warning">/</span> Empleo
+      </p>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light position-relative">
+    <div class="container py-lg-5 py-4">
+
+      <div class="row mx-0 tarjeta-premium overflow-hidden">
+
+        <div class="col-lg-5 px-0 panel-animado d-flex flex-column justify-content-center p-4 p-lg-5 position-relative">
+          <div class="contenido-frente position-relative z-2">
+
+            <span class="badge bg-warning text-dark text-uppercase px-4 py-2 mb-4 tracking-wider fw-bold rounded-pill shadow-sm">
+              <i class="bi bi-briefcase-fill me-2"></i>Bolsa de Empleo
+            </span>
+
+            <h2 class="text-white mb-4 fw-extrabold main-title titulo-empleo">
+              ÚNETE AL EQUIPO DE <br>
+              <span class="text-warning">CONCRETERA HORMIGONES DEL SUR S.A.S.</span>
+            </h2>
+
+            <p class="text-white-50 mb-5 font-body" style="font-size: 1.1rem; line-height: 1.7;">
+              ¿Quieres formar parte de nuestra empresa? Evaluaremos tu perfil cuidadosamente. Completa el formulario y adjunta tu hoja de vida actualizada en formato PDF.
+            </p>
+
+            <div class="d-flex align-items-center mt-4 p-4 caja-cristal border-start border-warning border-4">
+              <i class="bi bi-people-fill text-warning fs-1 me-3"></i>
+              <span class="text-white fw-bold fs-4 tracking-wide text-uppercase">¡Únete a la familia Hormisur!</span>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-lg-7 px-0 panel-formulario d-flex align-items-center justify-content-center p-4 p-lg-5">
+          <form [formGroup]="formularioTrabajo" (ngSubmit)="enviarHojaDeVida()" class="w-100 form-espaciado">
+
+            <div *ngIf="mensajeExito" class="alert alert-success text-center mb-4 fw-bold shadow-lg border-0" style="border-radius: 12px;">
+              <i class="bi bi-check-circle-fill me-2 fs-5"></i>¡Hoja de vida enviada con éxito! Nos pondremos en contacto pronto.
+            </div>
+
+            <div class="row g-4 mb-4">
+              <div class="col-md-6">
+                <input type="text" class="form-control form-control-lg input-premium" placeholder="Nombres" formControlName="nombres"/>
+                <small *ngIf="formularioTrabajo.get('nombres')?.invalid && formularioTrabajo.get('nombres')?.touched" class="text-warning mt-2 d-block fw-bold"><i class="bi bi-exclamation-circle me-1"></i>Requerido</small>
+              </div>
+              <div class="col-md-6">
+                <input type="text" class="form-control form-control-lg input-premium" placeholder="Apellidos" formControlName="apellidos"/>
+                <small *ngIf="formularioTrabajo.get('apellidos')?.invalid && formularioTrabajo.get('apellidos')?.touched" class="text-warning mt-2 d-block fw-bold"><i class="bi bi-exclamation-circle me-1"></i>Requerido</small>
+              </div>
+            </div>
+
+            <div class="row g-4 mb-4">
+              <div class="col-md-6">
+                <input type="email" class="form-control form-control-lg input-premium" placeholder="Correo Electrónico" formControlName="correo"/>
+                <small *ngIf="formularioTrabajo.get('correo')?.invalid && formularioTrabajo.get('correo')?.touched" class="text-warning mt-2 d-block fw-bold"><i class="bi bi-exclamation-circle me-1"></i>Correo inválido</small>
+              </div>
+              <div class="col-md-6">
+                <input type="text" class="form-control form-control-lg input-premium" placeholder="Teléfono" formControlName="telefono"/>
+                <small *ngIf="formularioTrabajo.get('telefono')?.invalid && formularioTrabajo.get('telefono')?.touched" class="text-warning mt-2 d-block fw-bold"><i class="bi bi-exclamation-circle me-1"></i>Requerido</small>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <textarea class="form-control input-premium" rows="4" placeholder="Cuéntanos brevemente sobre tu perfil profesional e intereses..." formControlName="mensaje"></textarea>
+              <small *ngIf="formularioTrabajo.get('mensaje')?.invalid && formularioTrabajo.get('mensaje')?.touched" class="text-warning mt-2 d-block fw-bold"><i class="bi bi-exclamation-circle me-1"></i>Requerido</small>
+            </div>
+
+            <div class="mb-5">
+              <label class="text-white mb-3 fw-bold d-block tracking-wide">Adjuntar Hoja de Vida (PDF/Word)</label>
+              <div class="zona-archivo p-3 transition-all">
+                <input type="file" class="text-light w-100 input-file-custom" accept=".pdf,.doc,.docx" (change)="onFileChange($event)"/>
+              </div>
+              <small *ngIf="!archivoAdjunto && formularioTrabajo.touched" class="text-warning mt-2 d-block fw-bold"><i class="bi bi-exclamation-circle me-1"></i>Debes adjuntar un archivo</small>
+            </div>
+
+            <button class="btn btn-warning btn-lg w-100 fw-bold text-dark text-uppercase tracking-wider btn-animado py-3" type="submit" [disabled]="enviando">
+              <i class="bi bi-send-fill me-2" *ngIf="!enviando"></i>
+              <span class="spinner-border spinner-border-sm me-2" *ngIf="enviando"></span>
+              {{ enviando ? 'PROCESANDO ENVÍO...' : 'ENVIAR POSTULACIÓN' }}
+            </button>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>

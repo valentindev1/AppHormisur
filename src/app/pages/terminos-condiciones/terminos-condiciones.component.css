@@ -1,0 +1,29 @@
+/* ==========================================
+   ESTILOS: DOCUMENTACIÓN LEGAL (PRIVACIDAD)
+   ========================================== */
+
+.hero-section {
+  min-height: 30vh;
+  width: 100%;
+  margin: 0 !important;
+  padding-top: 0 !important;
+  position: relative;
+  background-color: #121212;
+}
+
+.hero-section .container { padding-top: 130px !important; }
+
+/* NUEVA CLASE: Ajusta el video para que cubra todo el fondo sin deformarse */
+.hero-video-background {
+  top: 0;
+  left: 0;
+  z-index: 0;
+  object-fit: cover; /* Mantiene la proporción FHD llenando toda la pantalla */
+}
+
+/* Mantienes tus animaciones de rebote intactas */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+.animate-bounce { animation: bounce 2s infinite; }

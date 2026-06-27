@@ -1,0 +1,117 @@
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar fixed-top">
+  <div class="container-fluid px-lg-4">
+
+    <a class="navbar-brand text-uppercase fw-bold d-flex align-items-center gap-3" routerLink="/">
+      <img ngSrc="assets/img/LOGO.png"
+           alt="Logo Concretera Hormigones del Sur S.A.S."
+           class="navbar-logo"
+           width="52"
+           height="52"
+           priority>
+
+      <div class="brand-text-container d-flex flex-column justify-content-center">
+        <span class="brand-subtext">Concretera</span>
+        <span class="brand-title">Hormigones <span class="text-warning">del Sur</span><span class="brand-sas">S.A.S.</span></span>
+      </div>
+    </a>
+
+
+    <button class="navbar-toggler border-0 shadow-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav">
+
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav" #navbarNav>
+
+
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-2 gap-lg-3 mt-3 mt-lg-0">
+
+        <!-- INICIO -->
+        <li class="nav-item">
+          <a class="nav-link custom-nav-link"
+             routerLink="/"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{exact: true}" (click)="cerrarMenu()">
+            Inicio
+          </a>
+        </li>
+
+        <!-- NOSOTROS -->
+        <li class="nav-item">
+          <a class="nav-link custom-nav-link"
+             routerLink="/nosotros"
+             routerLinkActive="active" (click)="cerrarMenu()">
+            Nosotros
+          </a>
+        </li>
+
+        <!-- SERVICIOS -->
+
+        <li class="nav-item dropdown"
+            (mouseenter)="openDropdown = true"
+            (mouseleave)="openDropdown = false">
+
+          <a class="nav-link dropdown-toggle">
+            Servicios
+          </a>
+
+          <ul class="dropdown-menu"
+              [class.show]="openDropdown">
+
+            <li><a class="dropdown-item" routerLink="/concretos" (click)="cerrarMenu()">Concretos</a></li>
+            <li><a class="dropdown-item" routerLink="/prefabricados" (click)="cerrarMenu()">Prefabricados</a></li>
+            <li><a class="dropdown-item" routerLink="/maquinaria" (click)="cerrarMenu()">Maquinaria</a></li>
+
+          </ul>
+        </li>
+
+
+        <!-- PROYECTOS -->
+        <li class="nav-item">
+          <a class="nav-link custom-nav-link"
+             routerLink="/proyectos"
+             routerLinkActive="active" (click)="cerrarMenu()">
+            Proyectos
+          </a>
+        </li>
+
+        <!-- NOTICIAS (ARTÍCULOS) -->
+        <li class="nav-item">
+          <a class="nav-link custom-nav-link"
+             routerLink="/noticias"
+             routerLinkActive="active" (click)="cerrarMenu()">
+            Noticias
+          </a>
+        </li>
+
+        <!-- TRABAJA CON NOSOTROS -->
+        <li class="nav-item">
+          <a class="nav-link custom-nav-link"
+             routerLink="/trabaja-con-nosotros"
+             routerLinkActive="active" (click)="cerrarMenu()">
+            Trabaja con Nosotros
+          </a>
+        </li>
+
+        <!-- CTA CONTACTO -->
+        <li class="nav-item ms-lg-2">
+          <a class="btn btn-warning btn-nav-cta fw-bold text-uppercase px-3 py-2 text-white"
+             href="https://wa.me/573143616958?text=Cordial%20saludo%20Hormigones%20del%20Sur,%20requiero%20mas%20información%20por%20favor." target="_blank">
+            Cotizar Obra
+          </a>
+        </li>
+
+        <!-- LOGIN / LOGOUT -->
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <button (click)="logout()"
+                  class="btn btn-outline-danger btn-sm px-3 py-2 text-uppercase fw-bold ms-lg-2">
+            Salir
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

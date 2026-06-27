@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;700;800&display=swap');
+
+:host { display: block; width: 100%; }
+
+.hero-interna {
+  position: relative; width: 100%; height: 40vh; min-height: 300px;
+  display: flex; align-items: center; justify-content: center;
+  background-color: #050505; overflow: hidden;
+}
+.hero-interna::before {
+  content: ''; position: absolute; width: 100%; height: 100%;
+  background-image: url('/assets/img/7.jpg'); background-size: cover; background-position: center;
+  animation: heroZoomOut 12s ease-out forwards;
+}
+.hero-interna::after {
+  content: ''; position: absolute; width: 100%; height: 100%;
+  background: linear-gradient(to bottom, rgba(10, 10, 10, 0.6), rgba(10, 10, 10, 0.9));
+}
+@keyframes heroZoomOut { 0% { transform: scale(1.15); } 100% { transform: scale(1); } }
+
+.bg-light-custom { background-color: #ffffff; color: #212529; }
+
+.concretos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+
+.concreto-card {
+  background-color: #ffffff; border-radius: 8px; overflow: hidden;
+  border: 1px solid #e9ecef; transition: all 0.3s ease; position: relative;
+}
+.concreto-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+
+/* --- Wrapper para logo y imagen --- */
+.image-wrapper { position: relative; width: 100%; height: 200px; overflow: hidden; }
+.image-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.concreto-card:hover .image-wrapper img { transform: scale(1.05); }
+
+.card-logo-badge { position: absolute; top: 10px; right: 10px; width: 50px; z-index: 3; }
+.card-logo-badge img { width: 100%; height: auto; }
+
+.overlay {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0); transition: background 0.4s ease; z-index: 2;
+}
+.concreto-card:hover .overlay { background: rgba(0,0,0,0.3); }
+
+.concreto-content { padding: 20px; }
+.concreto-title { font-weight: 700; text-transform: uppercase; font-family: 'Oswald', sans-serif; }
+.concreto-desc { color: #6c757d; font-size: 14px; font-family: 'Inter', sans-serif; }
+
+.btn-concreto {
+  display: inline-block; margin-top: 10px; color: #D97724;
+  font-weight: 600; text-decoration: none; transition: 0.3s;
+}
+.btn-concreto:hover { color: #E65F00; }
+
+.section-divider { width: 70px; height: 4px; background-color: #D97724; margin-bottom: 20px; }
+@media (max-width: 768px) { .concretos-grid { grid-template-columns: 1fr; } }

@@ -1,0 +1,43 @@
+<section class="login-section d-flex align-items-center justify-content-center min-vh-100 p-3">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="card bg-dark border-0 shadow-lg p-4 p-md-5">
+          <div class="card-body text-center">
+
+            <img ngSrc="assets/img/LOGO.png" alt="Logo Hormisur" width="80" height="80" priority class="mb-4">
+            <h2 class="text-white fw-bold mb-4 font-oswald">Iniciar Sesión</h2>
+
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div class="mb-3 text-start">
+                <label class="text-light-50 small mb-1">Correo Electrónico</label>
+                <input formControlName="email" type="email" class="form-control bg-dark text-white border-secondary">
+                <div class="text-danger small mt-1" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+                  Ingrese un correo válido.
+                </div>
+              </div>
+
+              <div class="mb-4 text-start">
+                <label class="text-light-50 small mb-1">Contraseña</label>
+                <input formControlName="password" type="password" class="form-control bg-dark text-white border-secondary">
+                <div class="text-danger small mt-1" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+                  Mínimo 6 caracteres.
+                </div>
+              </div>
+
+              <button type="submit" [disabled]="loginForm.invalid || isLoading" class="btn btn-industrial w-100 py-3 fw-bold text-uppercase">
+                <span *ngIf="!isLoading">Acceder</span>
+                <span *ngIf="isLoading" class="spinner-border spinner-border-sm"></span>
+              </button>
+            </form>
+
+            <div class="mt-4">
+              <a routerLink="/registro" class="text-warning text-decoration-none small">¿No tienes cuenta? Regístrate</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

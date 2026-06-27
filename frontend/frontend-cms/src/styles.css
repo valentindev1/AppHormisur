@@ -1,0 +1,65 @@
+/* ==========================================================================
+   1. CONFIGURACIÓN GLOBAL (RESET Y BÁSICOS)
+   ========================================================================== */
+body {
+  background-color: #1a1a1a;
+  margin: 0;
+  /* Eliminamos el padding-top aquí para no forzar a todos los elementos */
+  padding-top: 0 !important;
+}
+
+/* Añadimos un wrapper global para manejar el espacio de navegación */
+.main-content-wrapper {
+  background-color: #ffffff; /* 🔥 AQUÍ está el truco */
+  padding-top: 100px; /* Aquí controlas el espacio desde un solo lugar */
+}
+
+@media (max-width: 991.98px) {
+  .main-content-wrapper { padding-top: 70px; }
+}
+
+/* ==========================================================================
+   2. BARRAS FIJAS (TOPBAR Y NAVBAR)
+   ========================================================================== */
+.topbar, .navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 1050;
+  background-color: rgba(33, 37, 41, 0.8) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.topbar { top: 0; height: 40px; }
+.navbar { top: 40px; }
+
+@media (max-width: 991.98px) {
+  .navbar { top: 0 !important; }
+}
+
+/* ==========================================================================
+   3. GESTOR DE COOKIES (SIN CAMBIOS)
+   ========================================================================== */
+.cc--darkmode {
+  --cc-bg: #1a1d20;
+  --cc-secondary-bg: #22262a;
+  --cc-text: #ffffff !important;
+  --cc-title-text: #ffffff !important;
+  --cc-btn-primary-bg: #D97724;
+  --cc-btn-primary-text: #ffffff;
+  --cc-btn-primary-hover-bg: #E65F00;
+  --cc-btn-primary-border-color: #D97724;
+  --cc-btn-secondary-bg: #3a4147;
+  --cc-btn-secondary-text: #ffffff;
+  --cc-btn-secondary-hover-bg: #4a535b;
+  --cc-btn-secondary-border-color: transparent;
+  --cc-separator-border-color: rgba(255, 255, 255, 0.15);
+  --cc-toggle-on-bg: #D97724;
+  --cc-toggle-off-bg: #4a535b;
+  --cc-toggle-on-dial-bg: #ffffff;
+  --cc-toggle-off-dial-bg: #ffffff;
+  --cc-font-family: 'Inter', sans-serif;
+  --cc-btn-border-radius: 4px;
+}

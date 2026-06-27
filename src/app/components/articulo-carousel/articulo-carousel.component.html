@@ -1,0 +1,45 @@
+<div class="carousel-wrapper">
+
+  <div class="custom-news-container" #carrusel>
+
+    <div class="custom-card" *ngFor="let articulo of articulosFiltrados">
+
+      <div class="card-img-wrapper">
+
+
+        <img
+          [ngSrc]="getImagen(articulo.imagenes?.[0])"
+          width="350"
+          height="200"
+          alt="Imagen del artículo"
+        >
+
+
+        <span class="category-badge">
+          {{ articulo.categoria }}
+        </span>
+
+      </div>
+
+      <div class="card-body-custom">
+
+        <h4 class="title">{{ articulo.titulo }}</h4>
+        <p class="summary">{{ articulo.resumen }}</p>
+
+        <a
+          [routerLink]="['/articulos', articulo.categoria, articulo.slug]"
+          class="btn-full">
+          Leer artículo completo
+        </a>
+
+        <div class="logo-floating">
+          <img src="assets/img/LOGO.png" alt="Logo">
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

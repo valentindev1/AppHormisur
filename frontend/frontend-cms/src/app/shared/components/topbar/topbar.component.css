@@ -1,0 +1,58 @@
+/* ==========================================
+   TOP BAR (Barra Superior de Contacto)
+   ========================================== */
+.topbar {
+  /* Oscurecemos un poquito más el fondo para resaltar las letras blancas */
+  background-color: rgba(10, 10, 10, 0.7) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  /* Línea divisoria ligeramente más visible */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1050;
+  height: 40px; /* Aumentamos 5px para mayor elegancia */
+}
+
+/* Enlaces de la izquierda (Teléfono y Correo) */
+.topbar-link {
+  color: rgba(255, 255, 255, 0.85); /* Blanco ligeramente apagado */
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+/* Al pasar el mouse, el texto se ilumina a blanco puro */
+.topbar-link:hover {
+  color: #ffffff;
+}
+
+/* Enlaces de la derecha (Redes Sociales) */
+.topbar-social {
+  color: rgba(255, 255, 255, 0.6); /* Color atenuado por defecto */
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+/* Efecto hover: se vuelve naranja, crece un poco y sube */
+.topbar-social:hover {
+  color: #D97724;
+  transform: scale(1.2) translateY(-2px);
+}
+
+/* Ocultamos el topbar en pantallas menores a 992px */
+@media (max-width: 991.98px) {
+  .topbar {
+    display: none !important;
+  }
+}

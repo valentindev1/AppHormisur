@@ -1,0 +1,71 @@
+<div class="container mt-5">
+
+  <h2>Gestión de Categorías</h2>
+
+  <!-- ✅ FORMULARIO -->
+  <div class="card p-3 mb-4">
+
+    <h4>Crear nueva categoría</h4>
+
+    <form (ngSubmit)="crearCategoria()">
+
+      <div class="mb-3">
+        <input class="form-control"
+               placeholder="Nombre"
+               [(ngModel)]="nuevaCategoria.nombre"
+               name="nombre"
+               required>
+      </div>
+
+      <div class="mb-3">
+        <input class="form-control"
+               placeholder="Descripción"
+               [(ngModel)]="nuevaCategoria.descripcion"
+               name="descripcion"
+               required>
+      </div>
+
+      <button class="btn btn-primary">
+        Crear Categoría
+      </button>
+
+    </form>
+
+  </div>
+
+  <!-- ✅ TABLA -->
+  <table class="table table-bordered">
+
+    <thead class="table-dark">
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Acciones</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <tr *ngFor="let c of categorias">
+      <td>{{ c.id }}</td>
+      <td>{{ c.nombre }}</td>
+      <td>{{ c.descripcion }}</td>
+      <td>
+        <button class="btn btn-danger btn-sm"
+                (click)="eliminarCategoria(c.id)">
+          Eliminar
+        </button>
+      </td>
+    </tr>
+
+    </tbody>
+
+  </table>
+
+  <!-- ✅ MENSAJE -->
+  <div class="mt-3">
+    {{ mensaje }}
+  </div>
+
+</div>

@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Bloqueamos el acceso de los buscadores a zonas privadas
+Disallow: /admin/
+Disallow: /login
+
+# Ruta a tu mapa del sitio para Google
+Sitemap: https://hormisursas.com.co/sitemap.xml

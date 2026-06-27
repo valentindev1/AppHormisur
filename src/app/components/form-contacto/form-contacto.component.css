@@ -1,0 +1,106 @@
+.form-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 35px 30px;
+  background-color: rgba(30, 30, 30, 0.95); /* oscuro con transparencia */
+  border-top: 4px solid #E87A22;
+  border-radius: 10px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.8);
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* TITULO */
+.form-container h2 {
+  text-align: center;
+  color: #FFFFFF;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 800;
+}
+
+/* TEXTO */
+.form-container p {
+  text-align: center;
+  color: #CCCCCC;
+  margin-bottom: 25px;
+  font-size: 0.95rem;
+}
+
+/* GRUPO */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* LABEL */
+.form-container label {
+  display: block;
+  margin-bottom: 8px;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* INPUTS */
+.form-container input,
+.form-container textarea {
+  width: 100%;
+  padding: 12px 15px;
+  background-color: #2D2D2D;
+  color: #FFFFFF;
+  border: 1px solid #666666;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+/* PLACEHOLDER */
+.form-container input::placeholder,
+.form-container textarea::placeholder {
+  color: #BBBBBB;
+}
+
+/* FOCUS */
+.form-container input:focus,
+.form-container textarea:focus {
+  border-color: #E87A22;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(232, 122, 34, 0.3);
+}
+
+/* BOTON */
+.form-container button {
+  width: 100%;
+  padding: 15px;
+  background-color: #E87A22;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+/* HOVER */
+.form-container button:hover:not(:disabled) {
+  background-color: #CC691A;
+  transform: scale(1.02);
+}
+
+/* CLICK */
+.form-container button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+/* DESHABILITADO */
+.form-container button:disabled {
+  background-color: rgba(232, 122, 34, 0.3);
+  color: #999999;
+  cursor: not-allowed;
+  border: 1px solid #555555;
+}
