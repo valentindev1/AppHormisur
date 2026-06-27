@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://api.hormisursas.com.co'
+  apiUrl: 'https://hormisursas.com.co/api'
 };
