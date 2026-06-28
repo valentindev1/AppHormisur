@@ -70,21 +70,28 @@
   font-size: 1rem !important;
 }
 
+
 .img-wrapper-detail {
   width: 100%;
   max-width: 450px;
-  aspect-ratio: 1 / 1;
   margin: 0 auto 40px auto;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  position: relative;
 }
+
+
 
 .main-img-detail {
   width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
+  height: auto !important;      /* ✅ CAMBIO CLAVE */
+  object-fit: contain !important; /* ✅ evita recorte */
   display: block !important;
+
+  opacity: 0;
+  transform: scale(1.1);
+  animation: fadeInZoom 1.2s ease forwards;
 }
 
 .articulo-contenido {
