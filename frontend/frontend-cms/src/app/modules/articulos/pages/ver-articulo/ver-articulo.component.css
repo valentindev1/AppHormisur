@@ -76,10 +76,13 @@
   max-width: 450px;
   margin: 0 auto 40px auto;
   border-radius: 12px;
-  overflow: hidden;
+  overflow: visible;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
   position: relative;
 }
+
+
+
 
 
 
@@ -93,6 +96,9 @@
   transform: scale(1.1);
   animation: fadeInZoom 1.2s ease forwards;
 }
+
+
+
 
 .articulo-contenido {
   font-family: 'Arial', sans-serif;
@@ -146,17 +152,7 @@
 .z-2 { z-index: 2; position: relative; }
 
 
-.main-img-detail {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  display: block !important;
 
-  /* 🔥 ANIMACIÓN DE ENTRADA */
-  opacity: 0;
-  transform: scale(1.1);
-  animation: fadeInZoom 1.2s ease forwards;
-}
 
 @keyframes fadeInZoom {
   to {
@@ -165,16 +161,7 @@
   }
 }
 
-.img-wrapper-detail {
-  width: 100%;
-  max-width: 450px;
-  aspect-ratio: 1 / 1;
-  margin: 0 auto 40px auto;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  position: relative;
-}
+
 
 /* 🔥 HOVER PREMIUM */
 .img-wrapper-detail:hover .main-img-detail {
